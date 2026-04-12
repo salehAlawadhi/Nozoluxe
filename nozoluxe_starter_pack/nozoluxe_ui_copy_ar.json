@@ -1,0 +1,137 @@
+{
+  "brand": {
+    "name": "Nozoluxe",
+    "tagline": "نُزُل الفخامة | خيار النخبة الخليجية في تركيا",
+    "slogan": "عش السيادة في أرقى بقاع تركيا"
+  },
+  "nav": {
+    "destinations": "الممالك الطبيعية",
+    "search": "استكشاف",
+    "book_now": "اقتنِ اللحظة",
+    "featured": "روائع مختارة"
+  },
+  "hero": {
+    "title_main": "نُزُل الفخامة",
+    "title_sub": "بوابتكم الحصرية لأرقى الوجهات التركية",
+    "cta": "ابدأ رحلتك الملكية"
+  },
+  "search": {
+    "placeholder": "بماذا تشعر اليوم؟ (بحر، ثلج، خصوصية...)",
+    "button": "ابحث في الممالك",
+    "mood_labels": {
+      "snow": "بياض الثلج",
+      "sea": "أزرق البحر",
+      "privacy": "حرم الخصوصية",
+      "nature": "قلب الطبيعة",
+      "wellness": "ملاذ الاسترخاء"
+    }
+  },
+  "homepage_sections": {
+    "destinations_title": "اكتشف الممالك",
+    "destinations_subtitle": "عقارات مختارة بعناية في أجمل بقاع تركيا",
+    "featured_title": "الروائع المختارة",
+    "featured_subtitle": "مجموعة حصرية لا تليق إلا بالنخبة"
+  },
+  "hotel_page": {
+    "why_we_chose_it": "رؤية نُزُل الفخامة",
+    "highlights": "المزايا الإمبراطورية",
+    "book_cta": "اقتنِ اللحظة",
+    "contact_whatsapp": "تواصل مع المنسق الملكي",
+    "contact_phone": "اتصال مباشر",
+    "scarcity_demand": "طلب مرتفع جداً حالياً",
+    "scarcity_viewing": "رحالة يشاهدون هذا النُزُل الآن"
+  },
+  "filters": {
+    "all": "الكل",
+    "family": "للعائلات",
+    "honeymoon": "للعرسان",
+    "privacy": "للخصوصية",
+    "nature": "للطبيعة"
+  },
+  "destinations": {
+    "Istanbul": "إسطنبول",
+    "Sapanca": "سابانجا",
+    "Bursa": "بورصة",
+    "Bodrum": "بودروم",
+    "Trabzon": "طرابزون",
+    "Antalya": "أنطاليا",
+    "Cappadocia": "كابادوكيا",
+    "Fethiye": "فتحية"
+  },
+  "tags_ar": {
+    "lake": "بحيرة",
+    "forest": "غابة",
+    "kids": "للأطفال",
+    "spa": "سبا فاخر",
+    "wellness": "استجمام",
+    "thermal": "مياه كبريتية",
+    "bungalow": "كوخ ريفي",
+    "privacy": "خصوصية تامة",
+    "private_pool": "مسبح خاص",
+    "mountain": "جبلي",
+    "sea_view": "إطلالة بحر",
+    "black_sea": "البحر الأسود",
+    "luxury": "فخامة مطلقة",
+    "beach": "شاطئ خاص",
+    "modern": "عصري",
+    "palace": "قصر تاريخي",
+    "city": "قلب المدينة",
+    "bosphorus": "البوسفور",
+    "tradition": "أصالة",
+    "villa": "فيلا مستقلة",
+    "concierge": "منسق خاص",
+    "skates": "تزلج",
+    "snow": "ثلوج",
+    "desert_look": "صحراوي",
+    "sky_view": "إطلالة سماء",
+    "balloon": "منطاد",
+    "cave_design": "تصميم كهفي",
+    "honeymoon": "شهر عسل",
+    "penthouse": "بنتهاوس",
+    "terrace": "تراس ملكي",
+    "private_bays": "خلجان خاصة",
+    "marina": "مارينا",
+    "boat_access": "وصول بالقارب",
+    "lifestyle": "ستايل لايف",
+    "sea": "بحر",
+    "private_peninsula": "شبه جزيرة خاصة",
+    "ultra_luxury": "فخامة عالية",
+    "golf": "غولف",
+    "river_nature": "نهر وطبيعة",
+    "waterfall": "شلالات",
+    "cave": "كهفي",
+    "views": "إطلالات",
+    "eco_luxury": "فخامة مستدامة",
+    "boutique": "بوتيك"
+  },
+  "footer": {
+    "about": "Nozoluxe منصة عربية متخصصة في الفنادق والمنتجعات التركية المختارة للعائلات الخليجية والباحثين عن تجربة أهدأ وأفخم.",
+    "cta": "ابدأ بطلب الحجز",
+    "contact_whatsapp": "واتساب",
+    "contact_email": "البريد الإلكتروني"
+  },
+  "sovereign_trust": {
+    "title": "ميثاق الثقة السيادي",
+    "verified_label": "موثق من نُزُل الفخامة",
+    "pillars": [
+      {
+        "title": "معاينة ميدانية",
+        "description": "نزور المواقع للتأكد من ملاءمتها لخصوصية العائلة الخليجية."
+      },
+      {
+        "title": "علاقة مباشرة",
+        "description": "نتعامل مع مُلاك العقارات وكبار الموردين لضمان المصداقية."
+      },
+      {
+        "title": "كونسيرج محلي",
+        "description": "فريقنا في تركيا يتابع معك لحظة بلحظة لضمان راحتك."
+      }
+    ]
+  },
+  "currencies": {
+    "SAR": "ريال سعودي",
+    "AED": "درهم إماراتي",
+    "KWD": "دينار كويتي",
+    "USD": "دولار أمريكي"
+  }
+}

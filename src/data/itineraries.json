@@ -1,0 +1,35 @@
+[
+  {
+    "slug": "aegean-sovereign-dream",
+    "name": "حلم الإيجة السيادي",
+    "name_en": "Aegean Sovereign Dream",
+    "duration": "7 أيام / 6 ليالٍ",
+    "destinations": ["Bodrum", "Fethiye"],
+    "image": "https://images.unsplash.com/photo-1544161515-4af6b1d4970a?auto=format&fit=crop&w=1200&q=80",
+    "description": "رحلة بحرية وبرية تجمع بين فخامة الفلل الخاصة في بودروم وسحر الخلجان المخفية في فتحية.",
+    "highlights": ["يخت خاص", "عشاء تحت النجوم", "فيلا بخصوصية مطلقة"],
+    "base_price_usd": 12500
+  },
+  {
+    "slug": "sapanca-mystic-mist",
+    "name": "ضباب سابانجا الغامض",
+    "name_en": "Sapanca Mystic Mist",
+    "duration": "4 أيام / 3 ليالٍ",
+    "destinations": ["Sapanca"],
+    "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+    "description": "استكشف سحر الطبيعة والبحيرات في سابانجا مع إقامة في أكواخ فاخرة وتجارب سبا مستوحاة من الغابة.",
+    "highlights": ["كوخ بمسبح خاص", "جولة غابة خاصة", "سبا ملكي"],
+    "base_price_usd": 4500
+  },
+  {
+    "slug": "istanbul-imperial-legacy",
+    "name": "إرث إسطنبول الإمبراطوري",
+    "name_en": "Istanbul Imperial Legacy",
+    "duration": "5 أيام / 4 ليالٍ",
+    "destinations": ["Istanbul"],
+    "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1200&q=80",
+    "description": "انغمس في تاريخ القصور العثمانية مع إقامة على ضفاف البوسفور وجولات حصرية في كنوز المدينة المخفية.",
+    "highlights": ["إطلالة بوسفور ملكية", "تسوق خاص", "دخول حصري للمتاحف"],
+    "base_price_usd": 8900
+  }
+]
