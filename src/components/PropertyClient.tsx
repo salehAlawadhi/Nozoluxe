@@ -4,6 +4,7 @@ import React, { use, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+
 import {
   ChevronRight,
   ChevronLeft,
@@ -21,15 +22,21 @@ import {
   CheckCircle2,
   Calendar,
   Utensils,
-  Waves
+  Waves,
+  Users,
+  Heart,
+  Leaf,
+  Diamond,
+  ShieldAlert
 } from "lucide-react";
+
 import { useRoyalMemory } from "@/hooks/useRoyalMemory";
 import uiCopy from "../../nozoluxe_starter_pack/nozoluxe_ui_copy_ar.json";
 import CurrencySelector from "@/components/CurrencySelector";
 import SovereignBadge from "@/components/SovereignBadge";
 import { useRoyalPrice } from "@/hooks/useRoyalPrice";
 
-export default function PropertyClient({ property }: { property: { slug: string; name?: string; destination?: string; type?: string; cluster_ar?: string; saudi_fit_reason_ar?: string; tags_ar?: string[]; images?: string[]; estimated_price_usd?: number; } }) {
+export default function PropertyClient({ property }: { property: { slug: string; name?: string; destination?: string; type?: string; cluster_ar?: string; saudi_fit_reason_ar?: string; content_angle_ar?: string; tags_ar?: string[]; images?: string[]; estimated_price_usd?: number; family_score?: number; honeymoon_score?: number; nature_score?: number; luxury_score?: number; privacy_score?: number; amenities?: string[]; } }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [viewsToday, setViewsToday] = useState(0);
@@ -44,7 +51,24 @@ export default function PropertyClient({ property }: { property: { slug: string;
   }, [property?.slug]);
 
   const generateWhatsAppMessage = () => {
-    const msg = `أهلاً نُزُل الفخامة،\nأرغب بمعرفة التوافر والأسعار لـ: \n*${property.name}* (${property.destination})\n\nشكراً لك.`;
+    // Collect the data to act as a CRM entry point
+    const priceText = property.estimated_price_usd ? `${convert(property.estimated_price_usd).amount} ${convert(property.estimated_price_usd).symbol}` : "غير محدد";
+    const historyText = recentlyViewed.length > 1 ? recentlyViewed.slice(0, 3).join(", ") : "لا يوجد";
+
+    const msg = `أهلاً نُزُل الفخامة،
+أرغب بمعرفة التوافر والأسعار لطلب الحجز 🛎️
+
+*🏨 العقار:* ${property.name}
+*📍 الوجهة:* ${property.destination}
+*💰 السعر التقديري لليلة:* ${priceText}
+
+---
+*🔍 نظرة سريعة على ملفي:*
+- شاهدت مؤخراً: ${historyText}
+- أنا أبحث عن: (أرجو تعبئة التفاصيل من قبلك: تواريخ، عدد ضيوف...)
+
+شكراً لكم.`;
+
     return encodeURIComponent(msg);
   };
 
@@ -181,16 +205,99 @@ export default function PropertyClient({ property }: { property: { slug: string;
           {/* Left Column: Details (8 cols) */}
           <div className="lg:col-span-8 space-y-20">
 
+
+            {/* The Nozoluxe DNA */}
+            <div className="mb-12">
+
+              {/* Privacy Shield Rating */}
+              {(property.privacy_score || 0) >= 4 && (
+                <div className="mb-10 bg-gradient-to-l from-luxury-obsidian to-purple-900/10 border border-purple-500/20 p-6 rounded-2xl flex items-center justify-between gap-6 overflow-hidden relative">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-[40px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+                  <div className="flex-1 relative z-10">
+                    <div className="flex items-center gap-2 mb-2">
+                      <ShieldCheck size={24} className="text-purple-400" />
+                      <h3 className="font-display text-xl text-luxury-marble">موثّق للخصوصية العالية</h3>
+                    </div>
+                    <p className="font-royal text-sm text-luxury-marble/70 m-0">
+                      هذا العقار يضمن لك أعلى معايير الخصوصية، مناسب للعائلات المحافظة والباحثين عن مسابح وفيلات خاصة.
+                    </p>
+                  </div>
+                  <div className="w-16 h-16 shrink-0 rounded-full border-4 border-purple-500/30 flex items-center justify-center relative z-10 bg-luxury-obsidian/50">
+                    <span className="font-display text-xl text-purple-400 font-bold">{property.privacy_score}/5</span>
+                  </div>
+                </div>
+              )}
+
+              <h2 className="text-sm font-royal text-luxury-gold uppercase tracking-widest mb-6">الحمض النووي للفندق (DNA)</h2>
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+                {[
+                  { label: "للعائلات", score: property.family_score || 0, icon: Users },
+                  { label: "شهر عسل", score: property.honeymoon_score || 0, icon: Heart },
+                  { label: "خصوصية", score: property.privacy_score || 0, icon: ShieldAlert },
+                  { label: "طبيعة", score: property.nature_score || 0, icon: Leaf },
+                  { label: "فخامة", score: property.luxury_score || 0, icon: Diamond }
+                ].map((item, i) => (
+                  <div key={i} className="flex flex-col items-center gap-3 p-4 rounded-2xl bg-luxury-charcoal/20 border border-luxury-marble/5">
+                    <item.icon size={20} className={item.score >= 4 ? "text-luxury-gold" : "text-luxury-marble/30"} />
+                    <span className="text-xs font-royal text-luxury-marble/80">{item.label}</span>
+                    <div className="flex gap-1">
+                      {[1,2,3,4,5].map(star => (
+                        <div key={star} className={`w-2 h-2 rounded-full ${star <= item.score ? 'bg-luxury-gold' : 'bg-luxury-marble/10'}`} />
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* The Nozoluxe Verdict */}
             <div className="prose prose-invert prose-lg max-w-none">
               <h2 className="text-3xl font-display font-bold text-luxury-gold mb-8 flex items-center gap-4">
                 <Sparkles size={28} />
-                لماذا اخترناه لك؟
+                رؤيتنا الخاصة (لماذا اخترناه لك؟)
               </h2>
-              <p className="text-luxury-marble/80 leading-relaxed font-royal text-xl border-r-2 border-luxury-gold/50 pr-6 py-2">
-                {property.saudi_fit_reason_ar}
-              </p>
+              <div className="bg-luxury-charcoal/30 border-r-2 border-luxury-gold p-8 rounded-l-3xl mb-8">
+                <p className="text-luxury-marble/90 leading-relaxed font-royal text-xl m-0">
+                  {property.saudi_fit_reason_ar}
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-8 mt-12">
+                <div className="bg-emerald-900/10 border border-emerald-500/20 p-6 rounded-2xl">
+                  <h3 className="text-emerald-400 font-display text-xl mb-4 flex items-center gap-2">
+                    <CheckCircle2 size={20} />
+                    لمن يناسب هذا الفندق؟
+                  </h3>
+                  <ul className="space-y-3 font-royal text-sm text-luxury-marble/80">
+                    {(property.family_score || 0) >= 4 && <li>• مثالي للعائلات الخليجية الكبيرة</li>}
+                    {(property.honeymoon_score || 0) >= 4 && <li>• ممتاز للعرسان والباحثين عن الرومانسية</li>}
+                    {(property.nature_score || 0) >= 4 && <li>• عشاق الطبيعة والهدوء والاسترخاء</li>}
+                    {(property.privacy_score || 0) >= 4 && <li>• للباحثين عن الخصوصية العالية والمسابح المستقلة</li>}
+                    {(property.luxury_score || 0) >= 4 && <li>• محبي الفخامة والخدمات الاستثنائية (VIP)</li>}
+                  </ul>
+                </div>
+                <div className="bg-rose-900/10 border border-rose-500/20 p-6 rounded-2xl">
+                  <h3 className="text-rose-400 font-display text-xl mb-4 flex items-center gap-2">
+                    <ShieldAlert size={20} />
+                    قد لا يناسبك إذا...
+                  </h3>
+                  <ul className="space-y-3 font-royal text-sm text-luxury-marble/80">
+                     {(property.family_score || 0) < 3 && <li>• معك أطفال صغار وتحتاج لمرافق ترفيهية واسعة</li>}
+                     {(property.nature_score || 0) > 4 && <li>• تبحث عن صخب المدينة والأسواق المركزية</li>}
+                     {(property.privacy_score || 0) < 3 && <li>• تبحث عن فلل مغلقة بالكامل للعائلة</li>}
+                     {(property.luxury_score || 0) < 3 && <li>• تتوقع خدمات فندقية 5 نجوم على مدار الساعة</li>}
+                  </ul>
+                </div>
+              </div>
+
+              {property.content_angle_ar && (
+                <div className="mt-8 p-6 bg-luxury-gold/5 border border-luxury-gold/10 rounded-2xl">
+                  <h3 className="text-luxury-gold font-display text-lg mb-2">ملاحظة الكونسيرج:</h3>
+                  <p className="text-luxury-marble/70 text-sm font-royal">{property.content_angle_ar}</p>
+                </div>
+              )}
             </div>
+
 
             {/* Highlights Grid */}
             <div>

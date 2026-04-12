@@ -70,19 +70,31 @@ export default function ConciergeWizard() {
   };
 
   const generateWhatsAppMessage = () => {
-    const audienceAr = prefs.audience === "family" ? "عائلة" : "زوجين";
+    const audienceAr = prefs.audience === "family" ? "عائلة" : "زوجين / شهر عسل";
     const vibeAr = prefs.vibe === "nature" ? "طبيعة وهدوء" : prefs.vibe === "sea" ? "بحر وإطلالة" : "مدينة وحيوية";
-    const privacyAr = prefs.privacy ? "نعم، أبحث عن خصوصية عالية" : "لا يشترط";
+    const privacyAr = prefs.privacy ? "نعم، أبحث عن خصوصية عالية (مسبح خاص/فيلا)" : "لا يشترط، أبحث عن فخامة عامة";
 
-    let msg = `أهلاً نُزُل الفخامة،\nأرغب بمساعدة في تخطيط رحلتي إلى تركيا.\n\nتفضيلاتي:\n- السفر كـ: ${audienceAr}\n- الأجواء المفضلة: ${vibeAr}\n- خصوصية تامة: ${privacyAr}\n\n`;
+    let msg = `أهلاً فريق نُزُل الفخامة 👑،
+استخدمت المساعد الذكي وأحتاج مساعدتكم في تخطيط رحلتي إلى تركيا.
+
+*📋 تفضيلاتي (My Profile):*
+- *السفر كـ:* ${audienceAr}
+- *الأجواء المفضلة:* ${vibeAr}
+- *الخصوصية:* ${privacyAr}
+
+---
+*✨ ترشيحات النظام لي:*
+`;
 
     if (recommended.length > 0) {
-      msg += `من ترشيحات المساعد الذكي:\n`;
-      recommended.forEach((p, i) => {
-        msg += `${i+1}. ${p.name} (${p.destination})\n`;
+      recommended.forEach((p: any, i) => {
+        msg += `${i+1}. ${p.name} (${p.destination}) - نسبة المطابقة: ${p.matchScore} نقطة\n`;
       });
+    } else {
+      msg += "لم يقم النظام باختيار ترشيحات، أرجو ترشيح خيارات مناسبة لي.\n";
     }
 
+    msg += `\nالرجاء إخباري بالتوافر والأسعار وأفضل الخيارات. شكراً.`;
     return encodeURIComponent(msg);
   };
 
