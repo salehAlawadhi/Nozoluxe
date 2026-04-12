@@ -55,7 +55,8 @@ export default function PropertyClient({ property }: { property: { slug: string;
     const priceText = property.estimated_price_usd ? `${convert(property.estimated_price_usd).amount} ${convert(property.estimated_price_usd).symbol}` : "غير محدد";
     const historyText = recentlyViewed.length > 1 ? recentlyViewed.slice(0, 3).join(", ") : "لا يوجد";
 
-    const msg = `أهلاً نُزُل الفخامة،
+    const msg = `أهلاً فريق نُزُل الفخامة 👑،
+أرغب بمعرفة التوافر وأفضل العروض المتاحة لطلب الحجز 🛎️
 أرغب بمعرفة التوافر والأسعار لطلب الحجز 🛎️
 
 *🏨 العقار:* ${property.name}
@@ -216,10 +217,10 @@ export default function PropertyClient({ property }: { property: { slug: string;
                   <div className="flex-1 relative z-10">
                     <div className="flex items-center gap-2 mb-2">
                       <ShieldCheck size={24} className="text-purple-400" />
-                      <h3 className="font-display text-xl text-luxury-marble">موثّق للخصوصية العالية</h3>
+                      <h3 className="font-display text-xl text-luxury-marble">موثّق الخصوصية من نُزُل الفخامة</h3>
                     </div>
                     <p className="font-royal text-sm text-luxury-marble/70 m-0">
-                      هذا العقار يضمن لك أعلى معايير الخصوصية، مناسب للعائلات المحافظة والباحثين عن مسابح وفيلات خاصة.
+                      تم التحقق من هذا العقار لتقديمه معايير خصوصية استثنائية، مما يضمن راحة تامة للعائلات المحافظة.
                     </p>
                   </div>
                   <div className="w-16 h-16 shrink-0 rounded-full border-4 border-purple-500/30 flex items-center justify-center relative z-10 bg-luxury-obsidian/50">
@@ -229,7 +230,7 @@ export default function PropertyClient({ property }: { property: { slug: string;
               )}
 
               <h2 className="text-sm font-royal text-luxury-gold uppercase tracking-widest mb-6">الحمض النووي للفندق (DNA)</h2>
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
                 {[
                   { label: "للعائلات", score: property.family_score || 0, icon: Users },
                   { label: "شهر عسل", score: property.honeymoon_score || 0, icon: Heart },
@@ -302,7 +303,7 @@ export default function PropertyClient({ property }: { property: { slug: string;
             {/* Highlights Grid */}
             <div>
               <h3 className="text-sm font-royal text-luxury-gold uppercase tracking-widest mb-8">أبرز المزايا</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 {property.tags_ar?.map((tag: string, index: number) => (
                   <div key={index} className="flex items-start gap-4 p-6 rounded-2xl bg-luxury-charcoal/30 border border-luxury-marble/5 hover:border-luxury-gold/20 transition-colors">
                     <CheckCircle2 className="text-luxury-gold shrink-0 mt-1" size={20} />
@@ -311,6 +312,54 @@ export default function PropertyClient({ property }: { property: { slug: string;
                 ))}
               </div>
             </div>
+
+
+            {/* GCC Comfort & Practical Fit */}
+            <div className="mt-20">
+              <h2 className="text-3xl font-display font-bold text-luxury-gold mb-8 flex items-center gap-4">
+                <Globe size={28} />
+                الراحة والعملية (مناسب للخليجيين)
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="p-6 bg-luxury-charcoal/20 border border-luxury-marble/5 rounded-2xl">
+                  <h4 className="text-lg font-display text-luxury-marble mb-3 flex items-center gap-2">
+                    <ShieldCheck size={18} className="text-luxury-gold" />
+                    مستوى الخصوصية
+                  </h4>
+                  <p className="text-sm font-royal text-luxury-marble/70">
+                    {(property.privacy_score || 0) >= 4 ? "ممتاز ومناسب للعائلات المحافظة." : "يوفر خصوصية جيدة مع بعض المناطق المشتركة."}
+                  </p>
+                </div>
+                <div className="p-6 bg-luxury-charcoal/20 border border-luxury-marble/5 rounded-2xl">
+                  <h4 className="text-lg font-display text-luxury-marble mb-3 flex items-center gap-2">
+                    <Users size={18} className="text-luxury-gold" />
+                    الراحة العائلية
+                  </h4>
+                  <p className="text-sm font-royal text-luxury-marble/70">
+                    {(property.family_score || 0) >= 4 ? "تصميم واسع وخيارات متعددة للغرف المتصلة أو الفلل." : "مناسب للعائلات الصغيرة أو الأزواج بشكل أكبر."}
+                  </p>
+                </div>
+                <div className="p-6 bg-luxury-charcoal/20 border border-luxury-marble/5 rounded-2xl">
+                  <h4 className="text-lg font-display text-luxury-marble mb-3 flex items-center gap-2">
+                    <MapPin size={18} className="text-luxury-gold" />
+                    التنقل والموقع
+                  </h4>
+                  <p className="text-sm font-royal text-luxury-marble/70">
+                    يوصى بترتيب خدمات التوصيل الخاصة أو استئجار سيارة لضمان راحة التنقل في هذه المنطقة.
+                  </p>
+                </div>
+                <div className="p-6 bg-luxury-charcoal/20 border border-luxury-marble/5 rounded-2xl">
+                  <h4 className="text-lg font-display text-luxury-marble mb-3 flex items-center gap-2">
+                    <Utensils size={18} className="text-luxury-gold" />
+                    خيارات الطعام
+                  </h4>
+                  <p className="text-sm font-royal text-luxury-marble/70">
+                    تتوفر خيارات طعام متنوعة تراعي الذوق العربي، مع إمكانية طلب تجهيزات خاصة في الفلل.
+                  </p>
+                </div>
+              </div>
+            </div>
+
 
           </div>
 
@@ -356,7 +405,7 @@ export default function PropertyClient({ property }: { property: { slug: string;
               </div>
 
               <a
-                href={`https://wa.me/905550000000?text=${generateWhatsAppMessage()}`}
+                href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905550000000"}?text=${generateWhatsAppMessage()}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-4 rounded-xl bg-gradient-to-r from-luxury-gold to-yellow-600 text-luxury-obsidian font-display font-bold text-lg hover:shadow-[0_0_30px_rgba(201,167,74,0.3)] transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2"

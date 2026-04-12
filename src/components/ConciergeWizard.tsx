@@ -242,7 +242,7 @@ export default function ConciergeWizard() {
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-luxury-gold/10">
               <a
-                href={`https://wa.me/905550000000?text=${generateWhatsAppMessage()}`}
+                href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "905550000000"}?text=${generateWhatsAppMessage()}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-luxury-gold to-yellow-600 text-luxury-obsidian py-4 rounded-xl font-display font-bold hover:shadow-[0_0_20px_rgba(201,167,74,0.3)] transition-all"
