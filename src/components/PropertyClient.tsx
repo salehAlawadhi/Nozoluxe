@@ -137,13 +137,7 @@ export default function PropertyClient({ property }: { property: { slug: string;
             transition={{ duration: 1.2, ease: "easeInOut" }}
             className="absolute inset-0"
           >
-            <Image
-              src={property.images?.[currentImageIndex] || '/placeholder.jpg'}
-              alt={property.name || ""}
-              fill
-              className="object-cover"
-              priority
-            />
+            <Image src={property.images?.[currentImageIndex] || "/placeholder.jpg"} alt={property.name || ""} fill sizes="100vw" className="object-cover" priority />
             {/* Cinematic Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-luxury-obsidian via-luxury-obsidian/40 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-r from-luxury-obsidian/60 via-transparent to-transparent" />

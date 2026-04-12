@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, ChevronRight, ChevronLeft, CheckCircle2, ArrowLeft, Send } from "lucide-react";
-import properties from "@/data/properties_enriched.json";
 
 type Step = "audience" | "vibe" | "privacy" | "results";
 
@@ -15,7 +14,7 @@ interface Preferences {
   privacy: boolean;
 }
 
-export default function ConciergeWizard() {
+export default function ConciergeWizard({ properties }: { properties: any[] }) {
   const [step, setStep] = useState<Step>("audience");
   const [prefs, setPrefs] = useState<Preferences>({ audience: "", vibe: "", privacy: false });
   const [recommended, setRecommended] = useState<{slug: string; name: string; destination: string; type: string; saudi_fit_reason_ar: string; images: string[]}[]>([]);
