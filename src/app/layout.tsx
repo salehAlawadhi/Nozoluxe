@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import PlatinumFooter from "@/components/PlatinumFooter";
 
 export const metadata: Metadata = {
-  title: "Nozoluxe | Royal Luxury Real Estate",
-  description: "Experience the pinnacle of luxury living with Nozoluxe. Exclusive properties curated for the elite.",
-  viewport: "width=device-width, initial-scale=1",
+  title: "نُزُل الفخامة | Nozoluxe Excellence",
+  description: "اكتشف أرقى الفنادق والمنتجعات الملكية في تركيا. تجربة حجز تليق بنخبة المسافرين الخليجيين.",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
 };
 
 export default function RootLayout({
@@ -17,8 +18,9 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className="min-h-full flex flex-col selection:bg-gold/30 selection:text-gold-dark">
+      <body className="min-h-full flex flex-col selection:bg-luxury-gold/30 selection:text-luxury-gold text-luxury-marble bg-luxury-obsidian">
         {children}
+        <PlatinumFooter />
       </body>
     </html>
   );
